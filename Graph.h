@@ -24,7 +24,7 @@ private:
 	Vex m_aVexs[20];
 	int m_nVexNum;
 public:
-	 Init();
+	void  Init();
 	int InsertVex(Vex sVex);
 	int InsertEdge(Edge sEdge);
 	Vex GetVex(int nVex);
