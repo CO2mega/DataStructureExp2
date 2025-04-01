@@ -1,5 +1,5 @@
 #pragma once
-#define MAX_VERTEX_NUM 20
+#define MAX 20
 struct Vex
 {
 	int num;

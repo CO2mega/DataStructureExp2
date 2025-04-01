@@ -5,14 +5,14 @@ using namespace std;
  void CGraph::Init()
 {
     m_nVexNum = 0;
-    for (int i = 0; i < MAX_VERTEX_NUM; ++i)
-        for (int j = 0; j < MAX_VERTEX_NUM; ++j)
+    for (int i = 0; i < MAX; ++i)
+        for (int j = 0; j < MAX; ++j)
             m_aAdjMatrix[i][j] = 0;
 }
 
 int CGraph::InsertVex(Vex sVex)
 {
-    if (m_nVexNum == MAX_VERTEX_NUM)
+    if (m_nVexNum == MAX)
         return false;
     m_aVexs[m_nVexNum++] = sVex;
     return m_nVexNum;
@@ -86,15 +86,15 @@ void CGraph::DFS(int nVex, bool bVisted[], int& nIndex, PathList& pList)
 void CGraph::DFSTraverse(int nVex, PathList& pList)
 {
     int nIndex = 0;
-    bool bVisted[MAX_VERTEX_NUM] = { false };
+    bool bVisted[MAX] = { false };
     DFS(nVex, bVisted, nIndex, pList);
 }
 
 int CGraph::FindShortPath(int nVexStart, int nVexEnd, Edge aPath[])
 {
-    bool fin[MAX_VERTEX_NUM];
-    int dist[MAX_VERTEX_NUM];
-    int prev[MAX_VERTEX_NUM];
+    bool fin[MAX];
+    int dist[MAX];
+    int prev[MAX];
     for (int i = 0; i < m_nVexNum; i++)
     {
         fin[i] = false;
@@ -150,9 +150,9 @@ int CGraph::FindShortPath(int nVexStart, int nVexEnd, Edge aPath[])
 
 int CGraph::FindMinTree(Edge aPath[])
 {
-    int lowcost[MAX_VERTEX_NUM] = { 0 };
-    bool addVexNew[MAX_VERTEX_NUM] = { true };
-    int prev[MAX_VERTEX_NUM] = { 0 };
+    int lowcost[MAX] = { 0 };
+    bool addVexNew[MAX] = { true };
+    int prev[MAX] = { 0 };
     int length = 0;
     for (int i = 1; i < m_nVexNum; i++)
     {

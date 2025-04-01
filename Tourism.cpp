@@ -34,7 +34,9 @@ static CGraph m_Graph;
 		fgets(buffer, 20, inVex); // 读入顶点编号
 		sscanf(buffer, "%d", &vex.num);
 		fgets(vex.name, 20, inVex); // 读入顶点名
+		vex.name[strlen(vex.name) - 1] = '\0'; // 去掉换行符
 		fgets(vex.desc, 1024, inVex); // 读入顶点描述
+		vex.desc[strlen(vex.desc) - 1] = '\0'; // 去掉换行符
 		m_Graph.InsertVex(vex); // 插入顶点
 		printf("%d-%s\n", vex.num, vex.name);
 	}
@@ -109,7 +111,7 @@ static CGraph m_Graph;
 	cin >> nVexStart;
 	cout << "请输入终点的编号：";
 	cin >> nVexEnd;
-	Edge aPath[MAX_VERTEX_NUM];
+	Edge aPath[MAX];
 	int shortPath = m_Graph.FindShortPath(nVexStart, nVexEnd, aPath);
 	cout << "最短路线为：";
 	int i = 0;
@@ -130,7 +132,7 @@ static CGraph m_Graph;
 {
 	cout << "==== 铺设电路规则 ====" << endl;
 	cout << "在以下两个景点之间铺设电路：" << endl;
-	Edge aPath[MAX_VERTEX_NUM];
+	Edge aPath[MAX];
 	int length = m_Graph.FindMinTree(aPath);
 	for (int i = 0; (i < m_Graph.GetVexnum()) && (aPath[i].vex1 != aPath[i].vex2); i++)
 	{

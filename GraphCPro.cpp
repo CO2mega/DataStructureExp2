@@ -34,7 +34,7 @@ int main() {
 	bool bRunning = true;
 	while (bRunning)
 	{
-		cout << "====景区信心管理系统====" << endl;
+		cout << "====景区信信息管理系统====" << endl;
 		cout<<"1.创建景区景点图"<<endl;
 		cout<<"2.查询景点信息"<<endl;
 		cout<<"3.旅游景点导航"<<endl;
